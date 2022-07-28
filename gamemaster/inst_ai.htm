@@ -1,0 +1,94 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="da">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>HeroQuest Game Master - Instructions:AI explained</title>
+<meta name="Microsoft Theme" content="hqgm 001, default">
+</head>
+
+<body background="_themes/hqgm/aginsback.jpg" bgcolor="#FFFFFF" text="#000000" link="#990000" vlink="#008000" alink="#000099"><!--mstheme--><font face="Arial, Helvetica">
+
+<p align="center"><!--webbot bot="Navigation" S-Type="siblings"
+S-Orientation="horizontal" S-Rendering="text" B-Include-Home="FALSE"
+B-Include-Up="TRUE" U-Page S-Target startspan --><nobr>[&nbsp;<a href="instructions_%26_rules.htm" target="">Up</a>&nbsp;]</nobr> <nobr>[&nbsp;<a href="inst_playing.htm" target="">Playing</a>&nbsp;]</nobr> <nobr>[&nbsp;<a href="inst_editing.htm" target="">Editing</a>&nbsp;]</nobr> <nobr>[&nbsp;<a href="inst_objects.htm" target="">Object&#39;opedia</a>&nbsp;]</nobr> <nobr>[&nbsp;AI&nbsp;explained&nbsp;]</nobr> <nobr>[&nbsp;<a href="inst_pbem.htm" target="">PBEM</a>&nbsp;]</nobr><!--webbot bot="Navigation" endspan i-checksum="34786" -->
+</p>
+<h1 align="center">Instructions: AI explained</h1>
+<p>AI or Artificial Intelligence might be a presumptous word for the HQGM AI.
+It's only a series of goal finding algorithms, that simulate intelligent
+behavior.</p>
+<p>The AI for HQGM adresses Monster movement, attack, defense and spellcasting.
+Below is an explanation of the different approaches and is &quot;nice to
+know&quot; information for the curious.</p>
+<h5>Movement AI</h5>
+<p>Each monster has been assigned an Attack-type that tells from what locations
+they can perform an attack (relative to the heroes). The movement algorithm
+simply tries to take the monster to the optimal square that satisfies the goal
+(while respecting walls and barred squares). In addtion to the attacktype there
+are some movement types that handle movement after an attack has been made.
+These are the attacktypes&nbsp; and movement types currently implemented (v.2.3)</p>
+<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="_themes/hqgm/artbul1d.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Helvetica">Normal<br>
+    a.k.a &quot;adjacent&quot;. Takes the monster to the nearest free
+    player-adjacent square with line-of-sight (LOS) to that player..<br>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="_themes/hqgm/artbul1d.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Helvetica">Diagonal<br>
+    Moves to the nearest free player-diagonal square with LOS. Failing this it
+    tries to use the normal rule.<br>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="_themes/hqgm/artbul1d.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Helvetica">Ranged<br>
+    Tries to move to a square with LOS and a distance&gt;1 to the nearest
+    player.<br>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="_themes/hqgm/artbul1d.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Helvetica">Hit&amp;Run<br>
+    Moves up to half the monsters moves away from the nearest player after an
+    attack. This tactic allows for other monsters to move in and make an attack
+    too (or it simply annoys the player who has to move before he can attack :-)
+    )<!--mstheme--></font><!--msthemelist--></td></tr>
+<!--msthemelist--></table><!--mstheme--><font face="Arial, Helvetica">
+<p>The above rules are limited to work within the explored sections of the
+board. There are two special rules that also work on unexplored sections i.e.
+monsters using these will move through undiscovered doors and secret passages.</p>
+<!--mstheme--></font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="_themes/hqgm/artbul1d.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Helvetica">Flee<br>
+    Used for the Ice Gremlin monster. After a succesfull steal-attempt the Ice
+    gremling will try to escape the heroes. If at the beginning of the monsters
+    turn there is no LOS to any player it will have escaped and is removed from
+    the board.<br>
+  <!--mstheme--></font><!--msthemelist--></td></tr>
+  <!--msthemelist--><tr><td valign="baseline" width="42"><img src="_themes/hqgm/artbul1d.gif" width="15" height="15" hspace="13" alt="bullet"></td><td valign="top" width="100%"><!--mstheme--><font face="Arial, Helvetica">Explore<br>
+    Try WoM quest 5 for this one. The monster will seek to uncover new areas,
+    revealing the dungeon as it moves until it finds a fully revealed path to a
+    player. any other monsters it encounters will be activated, simulating a
+    massive call-to-arms once the path to the players has been cleared.<!--mstheme--></font><!--msthemelist--></td></tr>
+<!--msthemelist--></table><!--mstheme--><font face="Arial, Helvetica">
+<h5>Attack AI</h5>
+<p>This is really basic &quot;intelligence&quot;. When a monster has an attack
+position as described by its attack-type it will roll the appropriate number of
+combat dice. If more than one player is within reach it will choose one
+randomly. Most monsters only have one attack but some have double attacks (x+y)
+while archers have a ranged and a close combat attack (ranged / closecombat ).
+Finally the very special attacks such as &quot;steal&quot; (Ice Gremlin)
+&quot;bonus attacks&quot; (Orc berserker) and &quot;hug&quot; (Yeti) are handled
+with seperate routines.</p>
+<h5>Defense AI</h5>
+<p>The simplest of all. The monster rolls it's designated defense dies and the
+player indicates any BP loss. Various death cries have been created for the
+monsters depending on their defense strength and/or the amount of BP loss
+received in the last blow.</p>
+<h5>Spellcasting</h5>
+<p>When a spellcaster is first encountered he sorts his spells so that summoning
+spells are cast first and then attack and defense spells at random. The caster
+will move according to the spells requirements (e.g. Chill requires a player
+adjacent square but Summon Orcs can be cast anywhere).<br>
+Once the spells are depleted the caster will resort to physical attacks. <br>
+The spell effects are NOT handled automatically except for monster healing
+spells, Escape spells and summoning spells. I know this is an area that could need improvement, but don't expect
+flashy spell effects soon. Players should use their imagination when a chaos
+spell has to be resolved (adding monsters, giving monsters extra attack dice
+temporarily etc.)</p>
+<!--mstheme--></font></body>
+
+</html>
