@@ -1,0 +1,6 @@
+# Can we just not play the conversion game?
+* text=auto eol=lf
+
+# Images are always binary
+*.gif binary
+*.jpg binary

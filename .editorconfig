@@ -1,0 +1,15 @@
+# This is the topmost .editorconfig file for this repo
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{html,css,php}]
+indent_style = tab
+indent_size = 4
