@@ -18,3 +18,12 @@ TODO items
 ----------
 
 Check out the Issues section of the site for that.
+
+
+In-progress 'main'
+------------------
+
+You can check <https://yeoldeinn.github.io/agins-archive/> if you want to see
+what the current state of the main branch of development looks like. At some
+point we'll want to change that to deploy some other branch, but for now it's
+fine as it is.
