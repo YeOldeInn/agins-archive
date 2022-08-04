@@ -1,0 +1,18 @@
+body {
+	padding: 0;
+	margin: 0;
+	background: #522d1e;
+}
+/* Styles specific to index.html */
+.main-page {
+	margin: auto;
+	padding: 8px;
+	max-width: 992;
+	background: url(art/ruledparchment.jpg);
+}
+.main-page a {
+	color: black;
+}
+.main-page a:visited {
+	color: black;
+}
