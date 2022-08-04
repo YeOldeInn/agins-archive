@@ -4,15 +4,15 @@ body {
 	background: #522d1e;
 }
 /* Styles specific to index.html */
-.main-page {
+.index-page {
 	margin: auto;
 	padding: 8px;
-	max-width: 992;
-	background: url(art/ruledparchment.jpg);
+	max-width: 992px;
+	background: url(../art/ruledparchment.jpg);
 }
-.main-page a {
+.index-page a {
 	color: black;
 }
-.main-page a:visited {
+.index-page a:visited {
 	color: black;
 }
