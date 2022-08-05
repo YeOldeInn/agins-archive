@@ -3,18 +3,61 @@ body {
 	margin: 0;
 	background: #522d1e;
 }
-/* Styles specific to index.html */
-.index-page {
-	background: url(../art/ruledparchment.jpg);
+
+/* Standard link colors */
+a {
+	color: blue;
+}
+
+a:visited {
+	color: purple;
+}
+
+a:active {
+	color: red;
+}
+
+/* Create a div that centers/scales page content */
+.page {
+	box-sizing: border-box;
+	background: url(../art/parchment.jpg);
 	margin: auto;
-	padding: 8px;
-	max-width: 992px;
+	padding: 0 8px;
+	max-width: 1008px;
 	min-height: 100vh;
 	text-align: center;
 }
-.index-page a {
+
+.page > * {
+	margin: auto;
+}
+
+/* Style the top nav like a single row table with HRs above and below */
+.topnav {
+	padding: 1.5em 0;
+}
+
+.topnav ul {
+	list-style: none;
+	display: flex;
+	margin: 0;
+	padding: 1em 0;
+	border-top: 2px groove #808080;
+	border-bottom: 2px groove #808080;
+}
+
+.topnav li {
+	flex: 1 0 auto;
+}
+
+
+/* Styles specific to index.html */
+#index-page {
+	background: url(../art/ruledparchment.jpg);
+}
+#index-page a {
 	color: black;
 }
-.index-page a:visited {
+#index-page a:visited {
 	color: black;
 }
