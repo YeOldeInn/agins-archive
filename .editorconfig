@@ -9,6 +9,8 @@ charset = utf-8
 
 [*.md]
 trim_trailing_whitespace = false
+max_line_width = 78
+indent_size = 4
 
 [*.{html,css,php}]
 indent_style = tab
