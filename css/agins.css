@@ -5,10 +5,12 @@ body {
 }
 /* Styles specific to index.html */
 .index-page {
+	background: url(../art/ruledparchment.jpg);
 	margin: auto;
 	padding: 8px;
 	max-width: 992px;
-	background: url(../art/ruledparchment.jpg);
+	min-height: 100vh;
+	text-align: center;
 }
 .index-page a {
 	color: black;
