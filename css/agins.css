@@ -1,3 +1,6 @@
+---
+---
+
 body {
 	padding: 0;
 	margin: 0;
@@ -26,7 +29,6 @@ a:active {
 	padding: 0 0.5em;
 	max-width: 1008px;
 	min-height: 100vh;
-	text-align: center;
 }
 
 .page > * {
@@ -35,7 +37,7 @@ a:active {
 
 /* Style the top nav like a single row table with HRs above and below */
 .topnav {
-	padding: 1.5em 0;
+	padding: 1.625em 0;
 }
 
 .topnav ul {
@@ -44,7 +46,7 @@ a:active {
 	flex-wrap: wrap;
 	gap: 0.5em;
 	margin: 0;
-	padding: 1em 0;
+	padding: 0.75em 0;
 	border-top: 0.125em groove #808080;
 	border-bottom: 0.125em groove #808080;
 }
@@ -53,6 +55,11 @@ a:active {
 	flex: 1 0 auto;
 }
 
+.pagetitle img {
+	display: block;
+	margin: auto;
+	padding: 1em 0;
+}
 
 /* Styles specific to index.html */
 #index-page {
@@ -63,4 +70,14 @@ a:active {
 }
 #index-page a:visited {
 	color: black;
+}
+
+/* Styles specific to news.html */
+.news {
+	max-width: 37.5em;
+	margin: 1.5em auto;
+}
+
+.news > article {
+	margin: 1em auto;
 }
