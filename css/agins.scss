@@ -11,15 +11,14 @@ body {
 /* Standard link colors */
 a {
 	color: blue;
+	&:visited {
+		color: purple;
+	}
+	&:active {
+		color: red;
+	}
 }
 
-a:visited {
-	color: purple;
-}
-
-a:active {
-	color: red;
-}
 
 /* Create a div that centers/scales page content */
 .page {
@@ -29,31 +28,31 @@ a:active {
 	padding: 0 0.5em;
 	max-width: 1008px;
 	min-height: 100vh;
+	& > * {
+		margin: auto;
+	}
 }
 
-.page > * {
-	margin: auto;
-}
 
 /* Style the top nav like a single row table with HRs above and below */
 .topnav {
 	padding: 1.625em 0;
+
+	& ul {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em;
+		margin: 0;
+		padding: 0.75em 0;
+		border-top: 0.125em groove #808080;
+		border-bottom: 0.125em groove #808080;
+	}
+	& li {
+		flex: 1 0 auto;
+	}
 }
 
-.topnav ul {
-	list-style: none;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.5em;
-	margin: 0;
-	padding: 0.75em 0;
-	border-top: 0.125em groove #808080;
-	border-bottom: 0.125em groove #808080;
-}
-
-.topnav li {
-	flex: 1 0 auto;
-}
 
 .pagetitle img {
 	display: block;
@@ -64,20 +63,32 @@ a:active {
 /* Styles specific to index.html */
 #index-page {
 	background: url(../art/ruledparchment.jpg);
-}
-#index-page a {
-	color: black;
-}
-#index-page a:visited {
-	color: black;
+	& a {
+		color: black;
+		&:visited { color: black; }
+	}
 }
 
 /* Styles specific to news.html */
 .news {
 	max-width: 37.5em;
 	margin: 1.5em auto;
+	& > article { margin: 1em auto; }
+
+	& h3 {
+		font-size: 1em;
+		font-weight: bold;
+		margin-block-end: 0;
+	}
 }
 
-.news > article {
-	margin: 1em auto;
+/* De-emphasize something that would otherwise be emphasized. Because ported from HTML4 */
+.no-em {
+	font-weight: normal;
+}
+
+em.just-red {
+	font-weight: normal;
+	font-style: normal;
+	color: red;
 }
