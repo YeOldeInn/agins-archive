@@ -3,23 +3,28 @@
 
 * {
 	--hr-border: 0.125em groove #808080;
+	--color-bounds: #522d1e;
+	--color-text: black;
+	--color-link: blue;
+	--color-visited: purple;
+	--color-active: red;
 }
 
 body {
 	padding: 0;
 	margin: 0;
-	background: #522d1e;
-	color: black;
+	background: var(--color-bounds);
+	color: var(--color-text);
 }
 
 /* Standard link colors */
-a {
-	color: blue;
+a, .nolink {
+	color: var(--color-link);
 	&:visited {
-		color: purple;
+		color: var(--color-visited);
 	}
 	&:active {
-		color: red;
+		color: var(--color-active);
 	}
 }
 
@@ -32,7 +37,7 @@ a {
 	padding: 0 0.5em;
 	max-width: 1008px;
 	min-height: 100vh;
-	& > * {
+	> * {
 		margin: auto;
 	}
 }
@@ -42,7 +47,7 @@ a {
 .topnav {
 	padding: 1.625em 0;
 
-	& ul {
+	ul {
 		list-style: none;
 		display: flex;
 		flex-wrap: wrap;
@@ -52,7 +57,7 @@ a {
 		border-top: var(--hr-border);
 		border-bottom: var(--hr-border);
 	}
-	& li {
+	li {
 		flex: 1 0 auto;
 	}
 }
@@ -63,9 +68,15 @@ a {
 	padding: 1em 0;
 	max-width: 700px;
 	text-align: center;
-	& p {
+
+	p {
 		font-size: 0.75em;
 	}
+}
+
+main {
+	max-width: 37.5em;
+	margin: auto;
 }
 
 .pagetitle img {
@@ -76,16 +87,18 @@ a {
 
 /* Styles specific to index.html */
 #index-page {
-	background: url(../art/ruledparchment.jpg);
-	& a {
-		color: black;
-		&:visited { color: black; }
+	a, .nolink {
+		--color-text: var(--color-text);
+		--color-link: var(--color-text);
+		--color-visited: var(--color-text);
 	}
+
+	background: url(../art/ruledparchment.jpg);
+
 }
 
-/* Styles specific to news.html */
+/* Styles specific to new.html */
 .news {
-	max-width: 37.5em;
 	margin: 1.5em auto;
 	& > article { margin: 1em auto; }
 
