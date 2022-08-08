@@ -19,6 +19,7 @@ body {
 
 /* Standard link colors */
 a, .nolink {
+	text-decoration: underline;
 	color: var(--color-link);
 	&:visited {
 		color: var(--color-visited);
@@ -28,6 +29,10 @@ a, .nolink {
 	}
 }
 
+p {
+	margin: 1em auto;
+	max-width: 38em;
+}
 
 /* Create a div that centers/scales page content */
 .page {
@@ -66,7 +71,7 @@ a, .nolink {
 	border-top: var(--hr-border);
 	margin: 3em auto 0;
 	padding: 1em 0;
-	max-width: 700px;
+	max-width: 44em;
 	text-align: center;
 
 	p {
@@ -75,7 +80,6 @@ a, .nolink {
 }
 
 main {
-	max-width: 37.5em;
 	margin: auto;
 }
 
@@ -97,8 +101,20 @@ main {
 
 }
 
+/* godawful table border */
+.tborder {
+	margin: 2em auto;
+	max-width: 100%;
+	border: 1px outset var(--color-text);
+
+	th, td {
+		border: 1px inset var(--color-text);
+	}
+}
+
 /* Styles specific to new.html */
 .news {
+	max-width: 38em;
 	margin: 1.5em auto;
 	& > article { margin: 1em auto; }
 
