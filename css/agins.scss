@@ -1,6 +1,10 @@
 ---
 ---
 
+* {
+	--hr-border: 0.125em groove #808080;
+}
+
 body {
 	padding: 0;
 	margin: 0;
@@ -45,14 +49,24 @@ a {
 		gap: 0.5em;
 		margin: 0;
 		padding: 0.75em 0;
-		border-top: 0.125em groove #808080;
-		border-bottom: 0.125em groove #808080;
+		border-top: var(--hr-border);
+		border-bottom: var(--hr-border);
 	}
 	& li {
 		flex: 1 0 auto;
 	}
 }
 
+.endlegal {
+	border-top: var(--hr-border);
+	margin: 3em auto 0;
+	padding: 1em 0;
+	max-width: 700px;
+	text-align: center;
+	& p {
+		font-size: 0.75em;
+	}
+}
 
 .pagetitle img {
 	display: block;
