@@ -76,6 +76,7 @@ p {
 
 	p {
 		font-size: 0.75em;
+		max-width: 100%;
 	}
 }
 
@@ -110,6 +111,12 @@ main {
 	th, td {
 		border: 1px inset var(--color-text);
 	}
+}
+
+/* Styles specific to quests.html */
+.quests thead {
+	color: red;
+	text-align: center;
 }
 
 /* Styles specific to new.html */
