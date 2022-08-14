@@ -114,9 +114,22 @@ main {
 }
 
 /* Styles specific to quests.html */
-.quests thead {
-	color: red;
+.quests {
 	text-align: center;
+	.winner, .heading {
+		color: red;
+		font-weight: bold;
+	}
+	.name a {
+		font-weight: bold;
+	}
+	.size {
+		white-space: nowrap;
+	}
+	.desc {
+		text-align: left;
+		font-style: italic;
+	}
 }
 
 /* Styles specific to new.html */
