@@ -3,35 +3,49 @@ layout: page
 title: Miniatures Gallery
 ---
 <header class="pagetitle">
-<img lt="HeroQuest Miniature Gallery" src="art/hqmini.gif" width="475" height="195">
+<img alt="HeroQuest Miniature Gallery" src="art/hqmini.gif">
 </header>
 
-<!--
-	TODO: Do this right!
-	Again, as with tiles.html, this should be something like this using flexbox:
-
-<ul class="something">
-	<li><a href="minisrons.html">Minis by<br>Ron Shirtz</a></li>
-	<li><a href="minisdaves.html">Minis by<br>Dave Wile</a></li>
-	<li><a href="minisazraels.html">Minis by<br>Azrael</a></li>
-	<li><a href="minischristines.html">Minis by<br>Christine Marriott</a></li>
-</ul>
-
--->
-
-<table cellpadding="10" style="
+<style>
+.minis ul {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	list-style: none;
 	margin: auto;
+	padding: 0;
+	max-width: 24em;
 	font-size: 1.125em;
 	font-weight: bold;
+}
+.minis li {
+	flex-shrink: 1;
+	flex-grow: 1;
+	flex-basis: 0;
 	text-align: center;
-">
-<tr>
-	<td><a href="minisrons.html">Minis by<br>Ron Shirtz</a></td>
-	<td><a href="minisdaves.html">Minis by<br>Dave Wile</a></td>
-</tr>
-<tr>
-	<td><a href="minisazraels.html">Minis by<br>Azrael</a></td>
-	<td><a href="minischristines.html">Minis by<br>Christine Marriott</a></tr>
-</table>
+	align-self: center;
+	padding: 0.5em;
+}
+
+@media (min-width: 600px) {
+	.minis ul {
+		flex-direction: row;
+	}
+	.minis li {
+		flex-basis: 8em;
+	}
+}
+</style>
+<section class="minis">
+
+<ul class="something">
+	<li><a href="minisrons.html">Minis by<br>Ron&nbsp;Shirtz</a></li>
+	<li><a href="minisdaves.html">Minis by<br>Dave&nbsp;Wile</a></li>
+	<li><a href="minisazraels.html">Minis by<br>Azrael</a></li>
+	<li><a href="minischristines.html">Minis by<br>Christine&nbsp;Marriott</a></li>
+</ul>
+
+</section>
 
 <!-- ##3## -->
