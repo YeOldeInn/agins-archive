@@ -15,6 +15,8 @@ body {
 	margin: 0;
 	background: var(--color-bounds);
 	color: var(--color-text);
+	font-size: 16px;
+	min-width: 20em;
 }
 
 /* Standard link colors */
@@ -31,7 +33,6 @@ a, .nolink {
 
 p {
 	margin: 1em auto;
-	max-width: 38em;
 }
 
 /* Create a div that centers/scales page content */
@@ -56,14 +57,14 @@ p {
 		list-style: none;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.5em;
+		justify-content: center;
+		gap: 1em;
 		margin: 0;
 		padding: 0.75em 0;
 		border-top: var(--hr-border);
 		border-bottom: var(--hr-border);
 	}
 	li {
-		flex: 1 0 auto;
 	}
 }
 
@@ -84,10 +85,22 @@ main {
 	margin: auto;
 }
 
-.pagetitle img {
-	display: block;
-	margin: auto;
+.pagetitle {
 	padding: 1em 0;
+
+	img, h2 {
+		display: block;
+		margin: auto;
+	}
+	img {
+		max-width: calc(100% - 2em);
+		height: auto;
+	}
+	h2 {
+		font-weight: bold;
+		font-size: 2em;
+		text-align: center;
+	}
 }
 
 /* Styles specific to index.html */
