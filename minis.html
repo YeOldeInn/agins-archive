@@ -3,44 +3,13 @@ layout: page
 title: Miniatures Gallery
 ---
 <header class="pagetitle">
-<img alt="HeroQuest Miniature Gallery" src="art/hqmini.gif">
+<img src="assets/headers/hqmini.gif" srcset="
+	 assets/headers/hqmini.gif 1x,
+	 assets/headers/hqmini-2x.png 2x,
+	 assets/headers/hqmini-4x.png 4x,
+" alt="HeroQuest Miniature Gallery">
 </header>
 
-<!-- This style block doesn't belong here, but WIP -->
-<style>
-.minis ul {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	gap: 0.5em;
-	list-style: none;
-	margin: auto;
-	padding: 0;
-	max-width: 24em;
-	font-size: 1.125em;
-	font-weight: bold;
-}
-.minis li {
-	flex-shrink: 1;
-	flex-grow: 1;
-	flex-basis: 0;
-	text-align: center;
-	align-self: center;
-	padding: 0.5em;
-}
-.minis li a {
-	white-space: nowrap;
-}
-
-@media (min-width: 600px) {
-	.minis ul {
-		flex-direction: row;
-	}
-	.minis li {
-		flex-basis: 8em;
-	}
-}
-</style>
 <section class="minis">
 
 <ul>

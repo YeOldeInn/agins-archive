@@ -145,6 +145,44 @@ main {
 	}
 }
 
+/* Styles specific to miniatures gallery */
+.minis {
+	ul {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: 0.5em;
+		list-style: none;
+		margin: auto;
+		padding: 0;
+		max-width: 24em;
+		font-size: 1.125em;
+		font-weight: bold;
+		text-align: center;
+	}
+	li {
+		flex-shrink: 1;
+		flex-grow: 1;
+		flex-basis: 0;
+		padding: 0.5em;
+		a {
+			white-space: nowrap;
+		}
+	}
+}
+
+@media (min-width: 600px) {
+	.minis {
+		ul {
+			flex-direction: row;
+		}
+		li {
+			flex-basis: 8em;
+		}
+	}
+}
 /* Styles specific to new.html */
 .news {
 	max-width: 38em;
