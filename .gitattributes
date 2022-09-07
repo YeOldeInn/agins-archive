@@ -4,3 +4,4 @@
 # Images are always binary
 *.gif binary
 *.jpg binary
+*.ico binary
