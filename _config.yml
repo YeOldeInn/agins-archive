@@ -1,2 +1,6 @@
 name: Agin's Inn Archive
 include: ['.htaccess']
+exclude: ['todo']
+
+host: 0.0.0.0
+livereload: True
