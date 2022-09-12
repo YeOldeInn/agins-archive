@@ -127,7 +127,169 @@ main {
 }
 
 /* Styles specific to quests.html */
+table p {
+    margin: 1em auto 0;
+}
+table p:first-child {
+    margin: 0 auto;
+}
+table ul:last-child {
+    margin: 1em auto 0;
+}
+
 .quests {
+    tr, td, tbody { display: block; }
+
+    thead { display: none; }
+
+    tr {
+        margin: 2em auto;
+        max-width: 100%;
+        border: 1px outset var(--color-text);
+    }
+
+    .quest_file a,
+    .quest_title {
+        font-weight: bold;
+    }
+
+    .note,
+    .note td {
+        border: none;
+    }
+
+    .winner, .note {
+        color: red;
+        font-weight: bold;
+    }
+    .note td {
+        margin: 0 auto -1em;
+        text-align: center;
+    }
+
+    th, td {
+        margin: 2px;
+        border: 1px inset var(--color-text);
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .quest_authors_horiz {
+        display: none;
+    }
+
+    td[data-label] {
+        position: relative;
+        margin-left: calc(10em + 6px);
+        min-height: calc(1em + 4px);
+    }
+    td[data-label]::before {
+        content: attr(data-label);
+        position: absolute;
+        left: calc(-10em - 7px);
+        top: -3px;
+        border: 1px inset var(--color-text);
+        margin: 2px;
+        padding: 1px;
+        width: calc(10em - 2px);
+        height: calc(100% - 2px);
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .spacer {
+        height: 0;
+        border: none;
+        margin: 2em auto;
+        border-top: var(--hr-border);
+
+        td { display: none };
+    }
+
+    .size { white-space: nowrap; }
+
+    td[data-label="Description"] {
+        font-style: italic;
+    }
+
+}
+
+@media(min-width:900px) {
+
+    .quests {
+        border: 1px outset var(--color-text);
+        width: 100%;
+
+        thead {
+            display: table-header-group;
+        }
+        tr {
+            display: table-row;
+            border: none;
+            margin: 0;
+        }
+        tbody {
+            display: table-row-group;
+            width: 100%;
+        }
+        th,
+        td {
+            display: table-cell;
+            text-align: center;
+            margin: 2px;
+        }
+
+        .quest_authors_horiz {
+            display: block;
+            margin-top: 1em;
+        }
+
+        .no-reqs {
+            text-align: center;
+        }
+
+        td[data-label] { margin: 2px; }
+
+        td[data-label]::before {
+            display: none;
+        }
+
+        [data-label="Author"] { display: none; } /* both th and td */
+
+        td[data-label="Quest Pack"] {
+            width: 15%;
+            min-width: 10em;
+        }
+        td[data-label="Contents"] {
+            width: 10%;
+            min-width: 8em;
+        }
+        td[data-label="Description"] {
+            width: 45%;
+            min-width: 12em;
+        }
+        td[data-label="Requires"] {
+            width: 30%;
+            min-width: 12em;
+        }
+
+        td[data-label="Description"],
+        td[data-label="Requires"] {
+            text-align: left;
+        }
+
+        .note td,
+        .spacer td {
+            display: table-cell;
+            border: 1px inset var(--color-text);
+        }
+        .spacer td {
+            height: 2.5em;
+        }
+    }
+}
+
+.oldquests {
 	text-align: center;
 	.winner, .heading {
 		color: red;
