@@ -2,12 +2,14 @@
 ---
 
 * {
-	--hr-border: 0.125em groove #808080;
-	--color-bounds: #522d1e;
-	--color-text: black;
-	--color-link: blue;
-	--color-visited: purple;
-	--color-active: red;
+    --color-bounds: #522d1e;
+    --color-text: black;
+    --color-link: blue;
+    --color-visited: purple;
+    --color-active: red;
+
+    --hr-border: 0.125rem groove #808080;
+    --page-padding: 0.25rem;
 }
 
 body {
@@ -40,7 +42,7 @@ p {
 	box-sizing: border-box;
 	background: url(../art/parchment.jpg);
 	margin: auto;
-	padding: 0 0.5em;
+	padding: 0 calc(var(--page-padding) / 2);
 	max-width: 1008px;
 	min-height: 100vh;
 	> * {
@@ -138,12 +140,15 @@ table ul:last-child {
 }
 
 .quests {
-    tr, td, tbody { display: block; }
+    --data-label-width: clamp(6.5em, 32.5vw, 9em);
+    padding: 0 calc(100vw/20 - 1em);
+
+    table, tr, td, tbody { display: block; }
 
     thead { display: none; }
 
     tr {
-        margin: 2em auto;
+        margin: 2em 0;
         max-width: 100%;
         border: 1px outset var(--color-text);
     }
@@ -168,7 +173,7 @@ table ul:last-child {
     }
 
     th, td {
-        margin: 2px;
+        margin: 0;
         border: 1px inset var(--color-text);
         text-align: left;
         vertical-align: top;
@@ -180,18 +185,18 @@ table ul:last-child {
 
     td[data-label] {
         position: relative;
-        margin-left: calc(10em + 6px);
+        margin-left: calc(var(--data-label-width) + 5px);
         min-height: calc(1em + 4px);
     }
     td[data-label]::before {
         content: attr(data-label);
         position: absolute;
-        left: calc(-10em - 7px);
+        left: calc(0px - var(--data-label-width) - 8px);
         top: -3px;
         border: 1px inset var(--color-text);
         margin: 2px;
         padding: 1px;
-        width: calc(10em - 2px);
+        width: var(--data-label-width);
         height: calc(100% - 2px);
         text-align: left;
         font-weight: bold;
@@ -220,6 +225,9 @@ table ul:last-child {
         border: 1px outset var(--color-text);
         width: 100%;
 
+        table {
+            display: table;
+        }
         thead {
             display: table-header-group;
         }
